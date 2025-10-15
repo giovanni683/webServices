@@ -1,19 +1,20 @@
 package com.services.webservices.services;
 
+import com.services.webservices.entities.Order;
 import com.services.webservices.entities.User;
+import com.services.webservices.repositories.OrderRepository;
 import com.services.webservices.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class OrderService {
 
     @Autowired
-    private UserRepository repository;
+    private OrderRepository repository;
 
     public List<User> findAll() {
 
@@ -21,7 +22,7 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        Optional<User> obj = repository.findById(id);
+        Optional<Order> obj = repository.findById(id);
         return obj.get();
     }
 
