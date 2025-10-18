@@ -14,11 +14,11 @@ public class OrderItemPK implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Order getOrder() {
@@ -46,6 +46,11 @@ public class OrderItemPK implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(order, product);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((order == null) ? 0 : order.hashCode());
+        result = prime * result + ((product == null) ? 0 : product.hashCode());
+        return result;
+
     }
 }

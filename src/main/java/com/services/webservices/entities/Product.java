@@ -34,6 +34,7 @@ public class Product implements java.io.Serializable {
 
 
     public Product(Long id, String name, String description, Double price, String imgUrl) {
+        super();
         this.id = id;
         this.name = name;
         this.description = description;
@@ -103,6 +104,9 @@ public class Product implements java.io.Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 }

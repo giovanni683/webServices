@@ -15,7 +15,6 @@ public class CategoryService {
     private CategoryRepository repository;
 
     public List<Category> findAll() {
-
         return repository.findAll();
     }
 
@@ -23,5 +22,4 @@ public class CategoryService {
         Optional<Category> obj = repository.findById(id);
         return obj.get();
     }
-
 }

@@ -46,20 +46,22 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    public Set<Product> getProduct() {
+        return products;
+    }
+
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Category category = (Category) obj;
         return Objects.equals(id, category.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    public Set<Product> getProducts() {
-        return products;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 }
-

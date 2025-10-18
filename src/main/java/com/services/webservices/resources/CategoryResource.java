@@ -1,6 +1,7 @@
 package com.services.webservices.resources;
 
 import com.services.webservices.entities.Category;
+import com.services.webservices.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +16,17 @@ import java.util.List;
 public class CategoryResource {
 
     @Autowired
-    private CategoryResource service;
+    private CategoryService service;
 
     @GetMapping
     public ResponseEntity<List<Category>> findAll() {
-        List<Category> list = service.findAll().getBody();
+        List<Category> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Category> findById(@PathVariable Long id) {
-        Category obj = service.findById(id).getBody();
+        Category obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }

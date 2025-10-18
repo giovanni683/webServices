@@ -16,7 +16,6 @@ public class OrderService {
     private OrderRepository repository;
 
     public List<Order> findAll() {
-
         return repository.findAll();
     }
 
